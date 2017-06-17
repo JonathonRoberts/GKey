@@ -6,7 +6,7 @@ GN_KEY_SCAN_DECODE_TABLE::
 	DU8	0,CH_ESC,"1234567890[]",CH_BACKSPACE,'\t';
 	DU8	"',.pyfgcrl/=",'\n',0,"ao";
 	DU8	"euidhtns-\\",0,"\\;qjk";
-		DU8	"xbmwvz",0,'*',0,CH_SPACE,0,0,0,0,0,0;
+	DU8	"xbmwvz",0,'*',0,CH_SPACE,0,0,0,0,0,0;
 	DU8	0,0,0,0,0,0,0,0,0,0,'-',0,0,0,'+',0;
 GS_KEY_SCAN_DECODE_TABLE::
 	DU8	0,CH_SHIFT_ESC,"!@#$$%^&*(){}",CH_BACKSPACE,'\t';
