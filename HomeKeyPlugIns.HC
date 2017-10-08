@@ -1,26 +1,27 @@
-//GKey: German Keyboard Layout for TempleOS
+//GKey: Dvorak Keyboard Layout for TempleOS
 
 //Layout Definitions
 asm {
 GN_KEY_SCAN_DECODE_TABLE::
-	DU8	0,CH_ESC,"1234567890·\`",CH_BACKSPACE,'\t';
-	DU8	"qwertzuiopÅ+",'\n',0,"as";
-	DU8	"dfghjklîÑ^",0,"#yxcv";
-	DU8	"bnm,.-",0,'*',0,CH_SPACE,0,0,0,0,0,0;
+	DU8	"~",CH_ESC,"1234567890[]",CH_BACKSPACE,'\t';
+	DU8	"',.pyfgcrl/=",'\n',"~ao";
+	DU8	"euidhtns-\\",0,"\\;qjk";
+	DU8	"xbmwvz",0,'*',0,CH_SPACE,0,0,0,0,0,0;
 	DU8	0,0,0,0,0,0,0,0,0,0,'-',0,0,0,'+',0;
 GS_KEY_SCAN_DECODE_TABLE::
-	DU8	0,CH_SHIFT_ESC,"!\"ü$$%&/()=?\`",CH_BACKSPACE,'\t';
-	DU8	"QWERTZUIOPö*",'\n',0,"AS";
-	DU8	"DFGHJKLôé¯",0,"'YXCV";
-	DU8	"BNM;:_",0,'*',0,CH_SHIFT_SPACE,0,0,0,0,0,0;
+	DU8	0,CH_SHIFT_ESC,"!@#$$%^&*(){}",CH_BACKSPACE,'\t';
+	DU8	'"',"<>PYFGCRL?+",'\n',"`AO";
+	DU8	"EUIDHTNS_~",0,"|:QJK";
+	DU8	"XBMWVZ",0,$IV,1$$IV,1$'*',0,CH_SHIFT_SPACE,0,0,0,0,0,0;
 	DU8	0,0,0,0,0,0,0,0,0,0,'-',0,0,0,'+',0;
 GC_KEY_SCAN_DECODE_TABLE::
-	DU8	0,CH_ESC,"1234567890-=",CH_BACKSPACE,'\t';
-	DU8	CH_CTRLQ,CH_CTRLW,CH_CTRLE,CH_CTRLR,CH_CTRLT,CH_CTRLZ,CH_CTRLU,
-		CH_CTRLI,CH_CTRLO,CH_CTRLP,"[]",'\n',0,CH_CTRLA,CH_CTRLS;
-	DU8	CH_CTRLD,CH_CTRLF,CH_CTRLG,CH_CTRLH,CH_CTRLJ,CH_CTRLK,CH_CTRLL,
-		";'\`",0,"\\",CH_CTRLY,CH_CTRLX,CH_CTRLC,CH_CTRLV;
-	DU8	CH_CTRLB,CH_CTRLN,CH_CTRLM,",./",0,'*',0,CH_SPACE,0,0,0,0,0,0;
+	DU8	0,CH_ESC,"1234567890[]",CH_BACKSPACE,'\t';
+	DU8	"',.",CH_CTRLP,CH_CTRLY,CH_CTRLF,CH_CTRLG,CH_CTRLC,CH_CTRLR,
+		CH_CTRLL,"/=",'\n',0,CH_CTRLA,CH_CTRLO;
+	DU8 CH_CTRLE,CH_CTRLU,CH_CTRLI,CH_CTRLD,CH_CTRLH,CH_CTRLT,CH_CTRLN,
+		CH_CTRLS,"-\\",0"\\;",CH_CTRLQ,CH_CTRLJ,CH_CTRLK;
+	DU8	CH_CTRLX,CH_CTRLB,CH_CTRLM,CH_CTRLW,CH_CTRLV,CH_CTRLZ,
+		CH_CTRLZ,0,'*',0,CH_SPACE,0,0,0,0,0,0;
 	DU8	0,0,0,0,0,0,0,0,0,0,'-',0,0,0,'+',0;
 }
 //Font Definitions
@@ -66,11 +67,11 @@ Bool MyPutKey(I64 ch,I64 sc)
   //Implementing "<>|" Key
   if (sc&0x7F==0x56 && !(sc&SCF_CTRL||sc&SCF_KEY_DESC)){
     if(sc&SCF_ALT)
-      '|';
+      "|";
     else if(sc&SCF_SHIFT^^sc&SCF_CAPS)
-      '>';
-    else
       '<';
+    else
+      '>';
     return TRUE;
   }
 
